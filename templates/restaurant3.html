@@ -1,0 +1,378 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}รีวิว Mizuki Omakase{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Tahoma, Geneva, sans-serif;
+        background-color: #f0f0f0;
+        /* Light background for better contrast */
+        margin: 0;
+        padding: 0;
+        padding-top: 70px;
+    }
+
+    .main-content {
+        background-color: #ffffff;
+        padding: 30px;
+        /* Increased padding for better spacing */
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        /* Softer shadow for depth */
+        margin-bottom: 20px;
+        /* Spacing between main content and map */
+    }
+
+    h2.editor-review {
+        color: #333;
+        /* Darker text for better readability */
+        margin-bottom: 20px;
+        font-size: 24px;
+        /* Increased font size for emphasis */
+        text-align: center;
+        /* Centered title for a cleaner look */
+    }
+
+    h6.editor-review {
+        color: #333;
+        /* Darker color for section headings */
+        margin-top: 20px;
+        margin-bottom: 10px;
+        /* Added space below section headings */
+    }
+
+    .form-group label {
+        font-weight: bold;
+        color: #007bff;
+        /* Color for labels to stand out */
+        margin-bottom: 5px;
+        /* Space between label and input */
+    }
+
+    .btn {
+        background-color: #007bff;
+        /* Primary button color */
+        color: white;
+        padding: 10px 15px;
+        /* Increased padding for better touch targets */
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        /* Smooth hover transition */
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+        /* Darker shade on hover */
+    }
+
+    .comment-box {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 8px;
+        /* Rounded corners for comments */
+        background-color: #f9f9f9;
+        /* Slightly different background */
+    }
+
+    .comment-box p {
+        margin: 0;
+    }
+
+    .comment-box h2 {
+        font-size: 14px;
+        /* Smaller font size for usernames */
+        color: #333;
+        /* Dark color for readability */
+    }
+
+    .comment-box a {
+        color: #e63946;
+        /* Color for delete links */
+        text-decoration: none;
+        /* No underline */
+    }
+
+    .comment-box a:hover {
+        text-decoration: underline;
+        /* Underline on hover */
+    }
+
+    .thumbnail {
+        border-radius: 10px;
+        /* Rounded corners for the contact details box */
+        padding: 20px;
+        /* Increased padding */
+        background-color: #fff;
+        /* White background */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        /* Subtle shadow */
+        margin-top: 20px;
+        /* Space above the contact box */
+    }
+
+    .caption h5 {
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #007bff;
+        /* Blue color for headings */
+    }
+
+    .form-horizontal .form-group {
+        display: flex;
+        justify-content: space-between;
+        /* Space out label and value */
+        margin-bottom: 10px;
+        /* Space between form groups */
+    }
+
+    .form-horizontal .col-xs-5 {
+        font-weight: bold;
+        color: #333;
+        /* Dark color for labels */
+    }
+
+    .form-horizontal .col-xs-7 {
+        line-height: 1.6;
+        /* Increased line height for readability */
+        color: #555;
+        /* Slightly lighter color for values */
+    }
+
+    img {
+        border-radius: 8px;
+        /* Rounded corners for images */
+        max-width: 100%;
+        /* Responsive images */
+        height: auto;
+        /* Maintain aspect ratio */
+    }
+
+    .map-container {
+        text-align: center;
+        /* Center map image */
+        margin-top: 20px;
+        /* Space above map */
+    }
+
+    .comment-box img {
+        margin: 15px 0;
+        /* เพิ่มระยะห่างด้านบนและด้านล่างของรูปภาพ */
+    }
+
+    .main-content img {
+        margin-bottom: 15px;
+        /* เพิ่มระยะห่างด้านล่างของรูปภาพ */
+    }
+
+    p {
+        margin-bottom: 15px;
+        /* เพิ่มระยะห่างด้านล่างของพารากราฟ */
+    }
+</style>
+
+<body class="mt-10">
+    <!-- Content Section -->
+    <div class="row"
+        style="display: flex; justify-content: center; align-items: flex-start; max-width: 1200px; margin: 0 auto;">
+        <div class="col-sm-8"> <!-- ช่องหลักด้านซ้าย (เนื้อหาหลัก) -->
+            <div class="main-content" style="display: flex; justify-content: flex-start;">
+                <div style="width: 100%;">
+                    <img src="/static/images/gotd/got1.jpg" alt="Mizuki Omakase Dish"
+                        style="display: block; margin: auto;">
+
+                    <h2 class="editor-review mt-2">รีวิว โกรก 1970 ร้านอาหารไทยโมเดิร์น
+                        สืบทอดภูมิปัญญาและนำเสนอวัตถุดิบชั้นดีจากราชบุรี</h2>
+
+                    <p
+                        style="text-align: center; font-family: tahoma, geneva, sans-serif; font-size: 20px; line-height: 1.8; background-color: transparent; color: #333;">
+                        ร้านอาหารไทยโมเดิร์นที่ยกเอาภูมิปัญญาของคนไทยและชาวราชบุรีมาเรียงร้อยเรื่องราวและนำเสนอผ่านเมนูอาหารในสไตล์ของเชฟติ๊ตูม
+                        ศุภรา กิตติอุดม ผู้เป็นเจ้าของร้านโกรก 1970 และยังเคยเป็นผู้เข้าร่วมแข่งขันในรายการ Star
+                        Chef Thailand อีกด้วย โกรก 1970
+                        เป็นชื่อที่เกิดจากความตั้งใจของเชฟติ๊ตูมตั้งแต่แรกที่มีความคิดว่าจะเปิดร้านอาหาร
+                        ‘โกรก’
+                        คือชื่อเรียกของท่าเรือที่ใช้ขนส่งของหรือสินค้าลงเรือมักจะพบเห็นได้มากในสมัยก่อน
+                        ซึ่งเชฟตูมเล่าว่าตั้งแต่รุ่นของอาเหล่ากงเหล่าม่ามีอาชีพระเบิดภูเขาขายจึงต้องมีโกรกเป็นของตัวเอง
+                        แต่อาชีพนี้สิ้นสุดในรุ่นของคุณปู่คุณย่าเพราะยุคสมัยเปลี่ยนไปก็ได้มีการห้ามไม่ให้ทำระเบิดภูเขาขาย
+                        และด้วยเหตุนี้จึงทำให้โกรกของที่บ้านต้องหยุดดำเนินการไปโดยปริยายเช่นกัน
+                    </p>
+
+                    <h6 class="editor-review text-center">การเดินทาง</h6>
+                    <div style="text-align: center;">
+                        <img src="/static/images/gotd/google2.png" alt="Mizuki Omakase Dish"
+                            style="display: block; margin: auto;">
+
+                        <p
+                            style="text-align: center; font-family: tahoma, geneva, sans-serif; font-size: 16px; line-height: 1.8; background-color: transparent; color: #333;">
+                            ‘ที่บ้านเราไม่มีใครทำอาหารเป็นเลย’
+                            เชฟติ๊ตูมพูดพร้อมเล่าถึงเรื่องราวที่คุณพ่อเริ่มเปิดร้านอาหารตั้งแต่วันแรก
+                            จุดเริ่มต้นก็เพราะคุณพ่อคิดถึงบรรยากาศเดิมๆ ของโกรกในสมัยที่ยังเปิดใช้งานอยู่
+                            ก็มักจะมีชาวเรือหรือพ่อค้าแวะเวียนมาทักทายพูดคุยกันอยู่เสมอจนเกิดเป็นความสนิทสนม
+                            แต่เมื่อโกรกหยุดไปบรรยากาศก็เงียบเหงาลงทันที
+                            คุณพ่อก็เลยมีความคิดว่าอยากจะทำให้โกรกแห่งนี้กลับมามีชีวิตขึ้นอีกครั้ง
+                            ก็เลยตัดสินใจเปิดเป็นร้านอาหารโดยตั้งชื่อง่ายๆ ตามลักษณะของโกรกที่บ้าน คือ
+                            ‘โกรกแดง’
+                            และในเมื่อทำอาหารไม่เป็นคุณพ่อก็ได้มีการจ้างพ่อครัวแม่ครัวท้องถิ่นที่ฝีมือดีมาทำงานที่ร้าน
+                            และจากจุดนั้นเองก็ทำให้คุณพ่อได้ทั้งประสบการณ์และวิชาการทำอาหารจากพวกเค้ามาด้วย
+                        </p>
+
+                        <h6 class="editor-review">บรรยากาศร้าน</h6>
+
+                        <p style="text-align:left;">
+                            <img src="/static/images/gotd/got2.jpg"
+                                style="height: 500px; width: 620px; display: block; margin: auto;" />
+                        </p>
+
+                        <p
+                            style="text-align: center; font-family: tahoma, geneva, sans-serif; font-size: 16px; line-height: 1.8; background-color: transparent; color: #333;">
+                            ร้านโกรก 1970 อยู่ใจกลางเมืองในซอยสมคิดย่านชิดลม (โครงการ Yolo Forest)
+                            เมื่อเดินเข้ามาในร้านก็จะได้เจอกับบรรยากาศบ้านไม้เก่าที่ถูกออกแบบและตกแต่งใหม่ด้วยไอเดียของเชฟติ๊ตูมที่มีความต้องการจะนำเสนอความเป็นไทยโมเดิร์น
+                            และยังมีกลิ่นอายของความเป็นราชบุรีอยู่ในร้านโกรก 1970 แห่งนี้ด้วย
+                        </p>
+
+                        <p style="text-align:left;">
+                            <img src="/static/images/gotd/got3.jpg"
+                                style="height: 414px; width: 620px; max-width: 620px; display: block; margin: auto;">
+                        </p>
+                        <p style="text-align:left;">
+                            <img src="/static/images/gotd/got4.jpg"
+                                style="height: 414px; width: 620px; max-width: 620px; display: block; margin: auto;">
+                        </p>
+
+                        <p
+                            style="text-align: center; font-family: tahoma, geneva, sans-serif; font-size: 16px; line-height: 1.8; background-color: transparent; color: #333;">
+                            การตกแต่งร้านจะเน้นเป็นไม้แบบเดิมๆ
+                            และใช้โทนสีเข้มให้ความรู้สึกอบอุ่นเหมือนนั่งทานอาหารอยู่ที่บ้าน
+                            แต่ก็ยังแซมไปด้วยกลิ่นอายของราชบุรี และหากสังเกตดีๆ
+                            เราจะเห็นได้ว่าทุกรายละเอียดที่นำมาตกแต่งในร้านเชฟติ๊ตูมจะเลือกใช้วัสดุทีมีความคล้ายคลึงกับหิน
+                            หรืออิฐ เพื่อหวนลำลึกถึงความหลังในวัยเด็กตอนที่ครอบครัวยังทำโกรกอยู่นั่นเองค่ะ
+                        </p>
+                        
+                        <p style="text-align:left;">
+                            <img src="/static/images/gotd/got5.jpg"
+                                style="height: 414px; width: 620px; max-width: 620px; display: block; margin: auto;">
+                        </p>
+                        
+                        <p
+                            style="text-align: center; font-family: tahoma, geneva, sans-serif; font-size: 16px; line-height: 1.8; background-color: transparent; color: #333;">
+                            อย่างการเลือกใช้จานชามในส่วนนี้เชฟติ๊ตูมก็ลงมือเลือกเองทั้งหมดเช่นเดียวกัน สำหรับโกรก 1970
+                            จะเปิดให้บริการทั้งหมด 2 ชั้น โดยบริเวณชั้น 2
+                            จะมีห้องไพรเวทและกึ่งไพรเวทไว้สำหรับลูกค้าที่ต้องการความเป็นส่วนตัว
+                            การตกแต่งก็จะคล้ายกับชั้น 1 แต่จะให้รู้สึกความผ่อนคลายมากกว่าค่ะ
+                        </p>
+
+                        <p style="text-align:left;">
+                            <img src="/static/images/gotd/got6.jpg "
+                                style="height: 500px; width: 620px; max-width: 620px; display: block; margin: auto;">
+
+                            {% if user.is_authenticated %}
+                            <!-- Comment Section -->
+                        <div class="container mx-auto mt-8 flex justify-center items-center">
+                            <form action="/submit_comment" method="POST" class="max-w-xl space-y-4">
+                                {% csrf_token %}
+
+                                <!-- Hidden input for food data -->
+                                <input type="hidden" name="food_id" value="restaurant3">
+
+                                <div class="form-group">
+                                    <label for="comment"
+                                        class="block text-gray-700 font-medium mb-2">ความคิดเห็น:</label>
+                                    <textarea class="form-control w-full border border-gray-300 rounded-md p-3"
+                                        id="comment" name="comment" rows="5" required></textarea>
+                                </div>
+
+                                <!-- ปุ่มส่งความคิดเห็น อยู่ตรงกลาง -->
+                                <div class="text-center">
+                                    <button type="submit" class="py-2 px-4 bg-gradient-to-r from-orange-500 to-yellow-400 text-white rounded-md font-semibold shadow-md hover:from-orange-600 
+                                                    hover:to-yellow-500 transition duration-300">
+                                        ส่งความคิดเห็น
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        {% endif %}
+
+
+                        <!-- ส่วนของการแสดงผลคอมเมนต์ -->
+                        <div class="max-w-2xl mx-auto p-4 space-y-2">
+                            {% for c in comment %}
+                            <div
+                                class="bg-white shadow-sm rounded-md p-2 border border-gray-200 flex items-start justify-between space-x-2">
+                                <div class="flex items-center space-x-2 flex-wrap">
+                                    <h2
+                                        class="text-sm font-medium text-white bg-gradient-to-r from-orange-500 to-yellow-400 px-2 py-1 rounded-md">
+                                        {{ c.user.username }}:
+                                    </h2>
+                                    <p class="text-sm text-gray-600 break-words">{{ c.content }}</p>
+                                </div>
+
+                                <!-- เฉพาะผู้ที่ล็อกอินเท่านั้นถึงจะเห็นปุ่มลบ -->
+                                {% if user.is_authenticated %}
+                                <div class="flex space-x-2 ml-auto">
+                                    <a href="{% url 'delete_comment' c.id %}"
+                                        class="text-sm font-medium text-white bg-gradient-to-r from-orange-500 to-yellow-400 px-2 py-1 rounded-md">ลบ</a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- แผนที่ -->
+    <div class="thumbnail thumbnail-noradius" id="col_address_rest"
+        style="border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin: 20px; background-color: #f9f9f9;">
+        <div class="caption">
+            <h5 style="text-align: center; font-weight: bold; margin-bottom: 15px;">รายละเอียดการติดต่อ</h5>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-xs-5" style="font-weight: bold;">ที่อยู่ : 14 Soi Somkid, แขวงลุมพินี เขตปทุมวัน
+                        กรุงเทพมหานคร 10330 ประเทศไทย ต. ลุมพินี อ. เขตปทุมวัน จ. กรุงเทพมหานคร ประเทศ Thailand</div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-5" style="font-weight: bold;">เบอร์ติดต่อ : โทร. 065 663 6966</div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-xs-5" style="font-weight: bold;">ช่วงเวลา : เปิดบริการทุกวัน เวลา 11.00 น. - 23.00 น.
+                    (ปิดทุกวันอังคาร)</div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-xs-5" style="font-weight: bold;">ช่วงราคา : 0.00 - 0.00 บาท</div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-xs-5" style="font-weight: bold;">ที่จอดรถ : ไม่ระบุ</div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-xs-5" style="font-weight: bold;">รับบัตรเครดิต : ไม่ระบุ</div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-xs-5 pr" style="font-weight: bold;">รับจองล่วงหน้า : ไม่ระบุ</div>
+
+            </div>
+
+            <!-- Added a container for the map and image -->
+            <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+                <a href="https://www.google.com/maps/place/%E0%B9%82%E0%B8%81%E0%B8%A3%E0%B8%81+1970+-+%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B9%82%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B8%B4%E0%B8%A3%E0%B9%8C%E0%B8%99/@13.7470576,100.5459876,15z/data=!4m2!3m1!1s0x0:0x45aa55388d8182d5?sa=X&ved=1t:2428&ictx=111"
+                    target="_blank">
+                    <img src="/static/images/gotd/google2.png" alt="Map"
+                        style="max-width: 100%; height: auto; margin-bottom: 10px;">
+                </a>
+                <h6 style="text-align: center;">แผนที่ร้าน โกรก 1970</h6>
+            </div>
+        </div>
+    </div>
+</body>
+
+{%endblock%}

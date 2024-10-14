@@ -1,0 +1,219 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact Us</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&display=swap"
+		rel="stylesheet">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&display=swap"
+		rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Anuphan', sans-serif;
+			font-family: 'Prompt', sans-serif;
+			font-family: 'Sarabun', sans-serif;
+		}
+
+		.navbar {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 10;
+			transition: transform 0.3s ease-in-out;
+			background: linear-gradient(to top, #e32c08, #ff9e20);
+			color: #FFFFFF;
+			padding: 10px 20px;
+		}
+
+		.navbar a {
+			color: #FFFFFF;
+		}
+
+		.navbar a:hover {
+			color: #D1D5DB;
+		}
+
+		.hidden-navbar {
+			transform: translateY(-100%);
+		}
+
+		.show-navbar {
+			transform: translateY(0);
+		}
+
+		.img-hover {
+			transition: transform 0.7s ease;
+		}
+
+		.img-hover:hover {
+			transform: scale(0.9);
+		}
+
+		.wrapper {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 2rem;
+			margin-top: 30px;
+		}
+
+		.icon {
+			width: 5.625rem;
+			height: 5.625rem;
+			background-color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+			position: relative;
+			border-radius: 50%;
+			transition: background-color 0.3s ease;
+		}
+
+		.icon i {
+			font-size: 2rem;
+			color: #000;
+			transition: transform 0.3s ease, color 0.3s ease;
+		}
+
+		.icon:hover>i {
+			transform: scale(1.2);
+			color: #f1f1f1;
+		}
+
+		.icon::before {
+			background: var(--color, #ff0000);
+			content: "";
+			position: absolute;
+			width: 130%;
+			height: 130%;
+			left: -110%;
+			top: 80%;
+			transform: rotate(45deg);
+		}
+
+		.icon:hover::before {
+			animation: slide 0.7s forwards;
+		}
+
+		@keyframes slide {
+			50% {
+				left: 10%;
+				top: -40%;
+			}
+
+			100% {
+				left: -15%;
+				top: -15%;
+			}
+		}
+
+		.instagram {
+			--color: #E1306C;
+		}
+
+		.facebook {
+			--color: #1877F2;
+		}
+
+		.youtube {
+			--color: #FF0000;
+		}
+
+		.github {
+			--color: #333;
+		}
+
+		.center-img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 300px;
+			/* กำหนดขนาดของภาพ */
+			height: auto;
+			border: 5px solid #000;
+			/* กรอบสีดำหนา 5px */
+			border-radius: 10px;
+			/* มุมโค้ง 10px */
+			padding: 10px;
+			/* ระยะห่างภายในจากกรอบ */
+		}
+	</style>
+</head>
+
+<body class="bg-gray-50">
+
+	<div class="relative">
+		<img src="{% static 'images/contactus.jpg' %}" alt="Banner" class="w-full h-[300px] object-cover">
+	</div>
+
+	<div class="mt-8">
+		<div>
+			<div class="mt-4 rounded">
+				<img src="{% static 'images/patimakorn.png' %}" alt="patimakon" class="center-img">
+				<p class="text-center text-2xl mt-2" style="font-family: 'Anuphan', sans-serif;">นายปฏิมากร ศรีจันทร์</p>
+			</div>
+
+			<div class="wrapper">
+				<a href="https://www.instagram.com/opsrichanm/" class="icon instagram" target="_blank"><i
+						class="fab fa-instagram"></i></a>
+				<a href="https://www.facebook.com/patimakon.srichan.7399" class="icon facebook" target="_blank"><i
+						class="fab fa-facebook-f"></i></a>
+				<a href="https://www.youtube.com" class="icon youtube" target="_blank"><i
+						class="fab fa-youtube"></i></a>
+				<a href="https://github.com/patimakorn07j" class="icon github" target="_blank"><i
+						class="fab fa-github"></i></a>
+			</div>
+		</div>
+		<div>
+			<div class="mt-4 rounded">
+				<img src="{% static 'images/Copter.jpg' %}" alt="patimakon" class="center-img">
+				<p class="text-center text-2xl mt-2" style="font-family: 'Anuphan', sans-serif;">นายธนชาติ คู่เรืองตะกูล</p>
+			</div>
+
+			<div class="wrapper">
+				<a href="https://www.instagram.com/cxp_thana/" class="icon instagram" target="_blank"><i
+						class="fab fa-instagram"></i></a>
+				<a href="https://www.facebook.com/copter.thanachart?locale=th_TH" class="icon facebook" target="_blank"><i
+						class="fab fa-facebook-f"></i></a>
+				<a href="https://www.youtube.com" class="icon youtube" target="_blank"><i
+						class="fab fa-youtube"></i></a>
+				<a href="https://github.com/Thanachard-Db/" class="icon github" target="_blank"><i
+						class="fab fa-github"></i></a>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+	<script>
+		const navbar = document.getElementById('navbar');
+		let lastScrollTop = 0;
+
+		window.addEventListener('scroll', function () {
+			const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+			if (scrollTop > lastScrollTop) {
+				navbar.classList.add('hidden-navbar');
+				navbar.classList.remove('show-navbar');
+			} else {
+				navbar.classList.remove('hidden-navbar');
+				navbar.classList.add('show-navbar');
+			}
+
+			lastScrollTop = scrollTop;
+		});
+	</script>
+</body>
+
+</html>
+
+{% endblock %}
